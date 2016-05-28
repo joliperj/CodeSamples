@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AutoDiscoverArduino", "AutoDiscoverArduino", "{CD943F16-B45E-436C-B8B1-967552D0B745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDiscoverArduino.App", "AutoDiscoverArduino.App\AutoDiscoverArduino.App.csproj", "{C11DBB4E-8B17-40B5-9D64-C6E56875D150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDiscoverArduino", "AutoDiscoverArduino\AutoDiscoverArduino.App.csproj", "{C11DBB4E-8B17-40B5-9D64-C6E56875D150}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
