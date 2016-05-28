@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="0b3c96b3-98ef-4f84-a0b0-bfb7a9350a28"
-    Publisher="CN=TheProgrammator"
+    Name="db4faec3-0093-4b8e-9a53-a6bbd5734e64"
+    Publisher="CN=SRYSSAER"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="0b3c96b3-98ef-4f84-a0b0-bfb7a9350a28" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="db4faec3-0093-4b8e-9a53-a6bbd5734e64" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>CodeSamples</DisplayName>
-    <PublisherDisplayName>TheProgrammator</PublisherDisplayName>
+    <DisplayName>AutoDiscoverArduino.App</DisplayName>
+    <PublisherDisplayName>SRYSSAER</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="CodeSamples.App">
+      EntryPoint="AutoDiscoverArduino.App.App">
       <uap:VisualElements
-        DisplayName="CodeSamples"
+        DisplayName="AutoDiscoverArduino.App"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="CodeSamples"
+        Description="AutoDiscoverArduino.App"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
@@ -44,9 +44,6 @@
   </Applications>
 
   <Capabilities>
-    <Capability Name="internetClient" />
-    <Capability Name="privateNetworkClientServer"/>
-    <Capability Name="internetClientServer"/>
     <DeviceCapability Name="serialcommunication">
       <Device Id="any">
         <Function Type="name:serialPort"/>

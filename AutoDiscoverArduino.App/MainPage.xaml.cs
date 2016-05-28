@@ -8,8 +8,7 @@ using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-
-namespace CodeSamples
+namespace AutoDiscoverArduino.App
 {
     public sealed partial class MainPage : Page
     {
