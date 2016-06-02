@@ -31,41 +31,12 @@ namespace AutoDiscoverArduino.App
 
         private async Task Connect()
         {
-            await Log("Discovering devices...");
-
-            var usbDevices = await UsbSerial.listAvailableDevicesAsync();
-            DeviceInformation info = null;
-
-            for (int i = 0; i < usbDevices.Count; i++)
-            {
-                var props = usbDevices[i].Properties.Values.ToList();
-                for (int y = 0; y < props.Count(); y++)
-                {
-                    if (props[y] == null)
-                        continue;
-
-                    if (props[y].ToString().Contains("USB-SERIAL"))
-                    {
-                        info = usbDevices[i];
-                        break;
-                    }
-                }
-
-                if (info != null)
-                    break;
-            }
-
-            if (info == null)
-                throw new NullReferenceException("Can't find Arduino.");
-
-            connection = new UsbSerial(info);
-            connection.ConnectionEstablished += Connection_ConnectionEstablished;
-            connection.ConnectionFailed += Connection_ConnectionFailed;
-            connection.begin(57600, SerialConfig.SERIAL_8N1);
-
             await Log("Connecting to device...");
 
-            arduino = new RemoteDevice(connection);
+            arduino = await new Arduino.Connect.AutoDiscover().ConnectDevice();
+            if (arduino == null)
+                await Log("Device not found.");
+
             arduino.DeviceReady += Arduino_DeviceReady;
             arduino.DeviceConnectionFailed += Arduino_DeviceConnectionFailed;
             arduino.DeviceConnectionLost += Arduino_DeviceConnectionLost;
