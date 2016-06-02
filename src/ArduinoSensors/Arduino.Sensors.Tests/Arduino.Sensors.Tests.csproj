@@ -124,10 +124,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Arduino.Connect\Arduino.Connect.csproj">
-      <Project>{51927799-2284-4be6-bba0-9bca9e8b9a38}</Project>
-      <Name>Arduino.Connect</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Arduino.Sensors\Arduino.Sensors.csproj">
       <Project>{858fe258-a63b-4901-b36f-c20642a62b9b}</Project>
       <Name>Arduino.Sensors</Name>
