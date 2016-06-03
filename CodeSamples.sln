@@ -17,11 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino.Sensors.Tests", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDiscoverArduino.App", "src\ArduinoDiscover\AutoDiscoverArduino\AutoDiscoverArduino.App.csproj", "{C11DBB4E-8B17-40B5-9D64-C6E56875D150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino.Connect", "src\Connect\Arduino.Connect\Arduino.Connect.csproj", "{51927799-2284-4BE6-BBA0-9BCA9E8B9A38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect.Arduino", "src\Connect\Connect.Arduino\Connect.Arduino.csproj", "{51927799-2284-4BE6-BBA0-9BCA9E8B9A38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureIoTDeviceService", "src\RaspberryPi\AzureIoTDeviceService\AzureIoTDeviceService.csproj", "{07840242-F67B-4D50-B037-A96F92723FA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectToAzureIoTHub", "src\RaspberryPi\ConnectToAzureIoTHub\ConnectToAzureIoTHub.csproj", "{033845CC-3AD7-44EC-BA4E-B2CE6BA91449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino.Sensors.UI", "src\ArduinoSensors\Arduino.Sensors.UI\Arduino.Sensors.UI.csproj", "{7A05602A-4555-4728-B53E-BC991BA50CA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +145,26 @@ Global
 		{033845CC-3AD7-44EC-BA4E-B2CE6BA91449}.Release|x86.ActiveCfg = Release|x86
 		{033845CC-3AD7-44EC-BA4E-B2CE6BA91449}.Release|x86.Build.0 = Release|x86
 		{033845CC-3AD7-44EC-BA4E-B2CE6BA91449}.Release|x86.Deploy.0 = Release|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|ARM.Build.0 = Debug|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|ARM.Deploy.0 = Debug|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x64.ActiveCfg = Debug|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x64.Build.0 = Debug|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x64.Deploy.0 = Debug|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x86.ActiveCfg = Debug|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x86.Build.0 = Debug|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Debug|x86.Deploy.0 = Debug|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|Any CPU.ActiveCfg = Release|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|ARM.ActiveCfg = Release|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|ARM.Build.0 = Release|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|ARM.Deploy.0 = Release|ARM
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x64.ActiveCfg = Release|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x64.Build.0 = Release|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x64.Deploy.0 = Release|x64
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x86.ActiveCfg = Release|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x86.Build.0 = Release|x86
+		{7A05602A-4555-4728-B53E-BC991BA50CA0}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,5 +176,6 @@ Global
 		{51927799-2284-4BE6-BBA0-9BCA9E8B9A38} = {E85FE672-BD01-4ABF-AAC3-0238DD8D9B1C}
 		{07840242-F67B-4D50-B037-A96F92723FA7} = {9D057513-9BD0-4B20-BB64-228447CF34AD}
 		{033845CC-3AD7-44EC-BA4E-B2CE6BA91449} = {9D057513-9BD0-4B20-BB64-228447CF34AD}
+		{7A05602A-4555-4728-B53E-BC991BA50CA0} = {83CCE1A8-A5C7-4EF2-82D5-E6F4466243EE}
 	EndGlobalSection
 EndGlobal

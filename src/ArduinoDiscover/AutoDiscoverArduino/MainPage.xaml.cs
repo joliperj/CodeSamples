@@ -1,18 +1,15 @@
 ﻿using Microsoft.Maker.RemoteWiring;
-using Microsoft.Maker.Serial;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
-using Windows.Devices.Enumeration;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
+using Connect.Arduino;
 using Windows.UI.Xaml.Controls;
 
 namespace AutoDiscoverArduino.App
 {
     public sealed partial class MainPage : Page
     {
-        private IStream connection;
         private RemoteDevice arduino;
         private const int relayPin = 2;
         private CoreDispatcher UiDispatcher
@@ -33,7 +30,7 @@ namespace AutoDiscoverArduino.App
         {
             await Log("Connecting to device...");
 
-            arduino = await new Arduino.Connect.AutoDiscover().ConnectDevice();
+            arduino = await AutoDiscover.ConnectDevice();
             if (arduino == null)
                 await Log("Device not found.");
 
@@ -109,6 +106,8 @@ namespace AutoDiscoverArduino.App
             await UiDispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 txtLog.Text += text + Environment.NewLine;
+                scroller.UpdateLayout();
+                scroller.ScrollToVerticalOffset(scroller.ScrollableHeight);
             });
         }
     }

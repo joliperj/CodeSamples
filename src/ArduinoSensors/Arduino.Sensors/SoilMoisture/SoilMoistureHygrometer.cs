@@ -1,4 +1,5 @@
 ﻿using Microsoft.Maker.RemoteWiring;
+using System;
 
 namespace Arduino.Sensors.SoilMoisture
 {
@@ -8,9 +9,12 @@ namespace Arduino.Sensors.SoilMoisture
         {
         }
 
-        protected override decimal ReadValue()
+        protected override decimal ProcessValue(ushort value)
         {
-            return base.ReadValue();
+            // 1023 is maximum resistance => should represent humidity 0%
+            value = (ushort)(1023 - value);
+            var percentage = Math.Round((decimal)value / 1023 * 100, 2);
+            return percentage;
         }
     }
 }

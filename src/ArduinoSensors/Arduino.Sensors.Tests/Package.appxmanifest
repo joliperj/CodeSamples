@@ -6,14 +6,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity Name="2af1659f-2e95-47b5-9b2c-9333bbd8ab02"
-            Publisher="CN=SRYSSAER"
+            Publisher="CN=TheProgrammator"
             Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="2af1659f-2e95-47b5-9b2c-9333bbd8ab02" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Arduino.Sensors.Tests</DisplayName>
-    <PublisherDisplayName>SRYSSAER</PublisherDisplayName>
+    <PublisherDisplayName>TheProgrammator</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   
@@ -39,7 +39,14 @@
       </uap:VisualElements>
     </Application>
   </Applications>
+
   <Capabilities>
-    <Capability Name="internetClient" />
-  </Capabilities> 
+    <DeviceCapability Name="serialcommunication">
+      <Device Id="any">
+        <Function Type="name:serialPort"/>
+      </Device>
+    </DeviceCapability>
+    <DeviceCapability Name="usb" />
+  </Capabilities>
+  
 </Package>

@@ -11,6 +11,8 @@
         <Button x:Name="btnOff" Content="Off" HorizontalAlignment="Stretch" Click="btnOff_Click" IsEnabled="False" IsDoubleTapEnabled="False" Margin="0,193,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnOn" Content="On" HorizontalAlignment="Stretch" Click="btnOn_Click" IsEnabled="False" IsDoubleTapEnabled="False" Margin="0,156,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="txtHeader" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Relay switcher" TextAlignment="Center" VerticalAlignment="Top" Margin="0,131,0,0"/>
-        <TextBox x:Name="txtLog" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="" Margin="0,230,0,10"/>
+        <ScrollViewer Margin="10,230,10,10" Name="scroller" >
+            <TextBox x:Name="txtLog" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text=""/>
+        </ScrollViewer>
     </Grid>
 </Page>

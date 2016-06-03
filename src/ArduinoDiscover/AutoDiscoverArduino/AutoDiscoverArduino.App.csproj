@@ -129,6 +129,16 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ArduinoSensors\Arduino.Sensors\Arduino.Sensors.csproj">
+      <Project>{858fe258-a63b-4901-b36f-c20642a62b9b}</Project>
+      <Name>Arduino.Sensors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Connect\Connect.Arduino\Connect.Arduino.csproj">
+      <Project>{51927799-2284-4be6-bba0-9bca9e8b9a38}</Project>
+      <Name>Connect.Arduino</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
