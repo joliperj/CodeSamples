@@ -26,7 +26,7 @@ namespace RaspberryPi
             string aqs = I2cDevice.GetDeviceSelector("I2C1");
             var dis = await DeviceInformation.FindAllAsync(aqs);
             _device = await I2cDevice.FromIdAsync(dis[0].Id, settings);
-            _periodicTimer = new Timer(this.TimerCallback, null, 0, 100); // Create a timer
+            _periodicTimer = new Timer(TimerCallback, null, 0, 100); // Create a timer
         }
 
         private void TimerCallback(object state)
@@ -41,11 +41,9 @@ namespace RaspberryPi
             {
                 Debug.WriteLine(f.Message);
             }
-            char[] cArray = System.Text.Encoding.UTF8.GetString(ReadBuf, 0, 6).ToCharArray();  // Converte  Byte to Char
-            String c = new String(cArray);
-            Debug.WriteLine(c);
-            // refresh the screen, note Im using a textbock @ UI
-            var task = this.Dispatcher.RunAsync(
+            char[] cArray = System.Text.Encoding.UTF8.GetString(ReadBuf, 0, 6).ToCharArray(); // Convert byte to char
+            string c = new string(cArray);
+            var task = Dispatcher.RunAsync(
                 Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
                     txtTemperature.Text = c;
                 });
