@@ -1,30 +1,38 @@
 ﻿using Microsoft.Maker.RemoteWiring;
+using System.Threading;
 
 namespace Arduino.Sensors
 {
     public abstract class SensorBase
     {
-        protected string AnalogPin { get; private set; }
-        protected RemoteDevice Device { get; private set; }
-        public decimal Value { get { return Device.analogRead(AnalogPin); } }
+        private RemoteDevice _device;
+        private string _analogPin;
+        private decimal _sensorValue;
+        private Timer _timer;
+
+        public decimal Value { get { return _sensorValue; } }
 
         public event ValueChanged OnValueChanged;
         public delegate void ValueChanged(decimal value);
 
-        public SensorBase(RemoteDevice device, string analogPin)
+        public SensorBase(RemoteDevice device, string analogPin, int interval = 2000)
         {
-            Device = device;
-            AnalogPin = analogPin;
+            _analogPin = analogPin;
+            _device = device;
 
-            Device.pinMode(AnalogPin, PinMode.INPUT);
-            Device.AnalogPinUpdated += Device_AnalogPinUpdated;
-            Device.analogRead(AnalogPin);
+            _device.pinMode(_analogPin, PinMode.INPUT);
+            _timer = new Timer(new TimerCallback(ReadValue), null, 0, interval);
         }
 
-        private void Device_AnalogPinUpdated(string pin, ushort value)
+        private void ReadValue(object sender)
         {
-            var processedValue = ProcessValue(value);
-            OnValueChanged?.Invoke(processedValue);
+            var newRead = _device.analogRead(_analogPin);
+            if (_sensorValue != newRead)
+            {
+                var processedValue = ProcessValue(newRead);
+                OnValueChanged?.Invoke(processedValue);
+            }
+            _sensorValue = newRead;
         }
 
         protected virtual decimal ProcessValue(ushort value)

@@ -8,6 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace AutoDiscoverArduino.App
 {
+    #pragma warning disable 4014
     public sealed partial class MainPage : Page
     {
         private RemoteDevice arduino;
@@ -22,7 +23,6 @@ namespace AutoDiscoverArduino.App
             this.InitializeComponent();
 
             Log("Start");
-
             Connect();
         }
 
