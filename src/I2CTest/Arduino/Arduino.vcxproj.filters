@@ -21,12 +21,18 @@
     <ClInclude Include="__vm\.Arduino.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DHT.h">
+    <ClInclude Include="dht11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="soilmoisture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DHT.cpp">
+    <ClCompile Include="dht11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="soilmoisture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

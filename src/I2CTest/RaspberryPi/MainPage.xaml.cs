@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RaspberryPi.Model;
+using System;
 using System.Diagnostics;
 using System.Threading;
 using Windows.Devices.Enumeration;
@@ -26,27 +27,42 @@ namespace RaspberryPi
             string aqs = I2cDevice.GetDeviceSelector("I2C1");
             var dis = await DeviceInformation.FindAllAsync(aqs);
             _device = await I2cDevice.FromIdAsync(dis[0].Id, settings);
-            _periodicTimer = new Timer(TimerCallback, null, 0, 100); // Create a timer
+            _periodicTimer = new Timer(TimerCallback, null, 0, 1000); // Create a timer
         }
 
         private void TimerCallback(object state)
         {
-            byte[] RegAddrBuf = new byte[] { 0x40 };
-            byte[] ReadBuf = new byte[6];
             try
             {
-                _device.Read(ReadBuf); // read the data
+                byte[] ReadBuf = new byte[14];
+                _device.Read(ReadBuf);
+
+                var humid = (int)ReadBuf[0];
+                var temp = (int)ReadBuf[1];
+                var soil = (float)ReadBuf[2];
+
+                if (temp < 30 && humid < 50 && soil < 50)
+                {
+                    _device.Write(new byte[] { I2cConstants.SET_PINSTATE, 3, I2cConstants.PINSTATE_HIGH });
+                }
+                else
+                {
+                    _device.Write(new byte[] { I2cConstants.SET_PINSTATE, 3, I2cConstants.PINSTATE_LOW });
+                }
+
+                var task = Dispatcher.RunAsync(
+                    Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
+                        txtTemperature.Text = temp.ToString();
+                        txtHumidity.Text = humid.ToString();
+                        txtSoil.Text = soil.ToString();
+                    });
+
             }
             catch (Exception f)
             {
                 Debug.WriteLine(f.Message);
             }
-            char[] cArray = System.Text.Encoding.UTF8.GetString(ReadBuf, 0, 6).ToCharArray(); // Convert byte to char
-            string c = new string(cArray);
-            var task = Dispatcher.RunAsync(
-                Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
-                    txtTemperature.Text = c;
-                });
+
         }
     }
 }

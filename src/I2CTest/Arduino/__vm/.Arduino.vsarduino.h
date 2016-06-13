@@ -64,6 +64,8 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portInputRegister(P)
 #define portModeRegister(P)
 #include <..\Arduino\Arduino.ino>
-#include <..\Arduino\DHT.cpp>
-#include <..\Arduino\DHT.h>
+#include <..\Arduino\dht11.cpp>
+#include <..\Arduino\dht11.h>
+#include <..\Arduino\soilmoisture.cpp>
+#include <..\Arduino\soilmoisture.h>
 #endif
