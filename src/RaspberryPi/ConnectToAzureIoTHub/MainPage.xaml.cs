@@ -40,29 +40,6 @@ namespace ConnectToAzureIoTHub
             _raspberry = DeviceClient.CreateFromConnectionString(deviceConnectionString, TransportType.Amqp);
         }
 
-        private void InitGPIO()
-        {
-            //var gpio = GpioController.GetDefault();
-
-            //// Show an error if there is no GPIO controller
-            //if (gpio == null)
-            //{
-            //    pin = null;
-            //    txtReceived.Text = "There is no GPIO controller on this device.";
-            //    return;
-            //}
-
-            //pin = gpio.OpenPin(LED_PIN);
-            //pinValue = GpioPinValue.High;
-            //pin.Write(pinValue);
-            //pin.SetDriveMode(GpioPinDriveMode.Output);
-
-            //txtReceived.Text = "GPIO pin initialized correctly.";
-
-            //pin.Write(GpioPinValue.Low);
-
-        }
-
         private async Task ListenForIncomingMessages()
         {
             while (true)
