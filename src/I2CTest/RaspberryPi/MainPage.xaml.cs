@@ -17,7 +17,7 @@ namespace RaspberryPi
         {
             this.InitializeComponent();
 
-            InitI2C();
+            InitI2C();  
         }
 
         private async void InitI2C()
